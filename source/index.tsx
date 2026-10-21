@@ -1,5 +1,6 @@
 import '@fontsource-variable/geist'
 import App from '@/App'
+import { AnimateUIProvider } from '@animate-ui/react/provider'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 
@@ -11,6 +12,8 @@ if (!root) {
 
 createRoot(root).render(
   <StrictMode>
-    <App />
+    <AnimateUIProvider tempo={0.9} checkAnimation='pop' reducedMotion='user'>
+      <App />
+    </AnimateUIProvider>
   </StrictMode>
 )

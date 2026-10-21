@@ -10,9 +10,9 @@
 
 - [ ] `bun run typecheck`, `bun run lint` and `bun run build` pass
 - [ ] Tried it in the browser with at least one real model
-- [ ] README or docs updated if behaviour changed
+- [ ] README or documentation updated if behaviour changed
 
 <!--
 Specialised templates, pick one with ?template=<name>.md in the PR URL:
-feature.md, bugfix.md, refactor.md, docs.md
+feature.md, bugfix.md, refactor.md, documentation.md
 -->

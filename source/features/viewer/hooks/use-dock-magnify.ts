@@ -1,6 +1,6 @@
 import { type RefObject, useEffect } from 'react'
 
-const MAX_SCALE = 1.7
+const MAX_SCALE = 1.45
 const SPREAD = 52
 
 const ITEMS = '[data-dock-item], [data-dock-gap]'

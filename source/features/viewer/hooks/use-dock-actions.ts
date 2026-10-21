@@ -1,21 +1,16 @@
 import type { DockGroup, ViewerSettings } from '../types'
 import { useKeyboardShortcuts } from '@/shared/hooks/use-keyboard-shortcuts'
-import { Box, Camera, Grid3x3, Info, Rotate3d, RotateCcw, Upload } from 'lucide-react'
+import { Box, Camera, Grid3x3, Info, Rotate3d, RotateCcw } from 'lucide-react'
 
 type UseDockActionsOptions = {
   settings: ViewerSettings
   onToggle: (key: keyof ViewerSettings) => void
-  onBrowse: () => void
   onResetCamera: () => void
   onScreenshot: () => void
 }
 
-export function useDockActions({ settings, onToggle, onBrowse, onResetCamera, onScreenshot }: UseDockActionsOptions) {
+export function useDockActions({ settings, onToggle, onResetCamera, onScreenshot }: UseDockActionsOptions) {
   const groups: DockGroup[] = [
-    {
-      id: 'file',
-      actions: [{ label: 'Open file', icon: Upload, shortcut: 'O', run: onBrowse }]
-    },
     {
       id: 'view',
       actions: [

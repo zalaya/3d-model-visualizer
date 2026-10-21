@@ -6,7 +6,8 @@ export function DropOverlay() {
       <span className='grid size-14 place-items-center rounded-2xl border border-white/10 bg-white/10 text-white'>
         <Upload className='size-6' strokeWidth={1.5} />
       </span>
-      <p className='text-lg font-medium tracking-tight'>Drop to open</p>
+      <p className='text-lg font-medium tracking-tight'>Drop a model package to open</p>
+      <p className='text-sm text-neutral-400'>GLB, or GLTF with its textures and binary files</p>
     </div>
   )
 }

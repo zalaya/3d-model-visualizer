@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-export function useFileDrop(onFile: (file: File) => void) {
+export function useFileDrop(onFiles: (files: File[]) => void) {
   const [dragging, setDragging] = useState(false)
 
   useEffect(() => {
@@ -18,10 +18,10 @@ export function useFileDrop(onFile: (file: File) => void) {
     const handleDrop = (event: DragEvent) => {
       event.preventDefault()
       setDragging(false)
-      const file = event.dataTransfer?.files[0]
+      const files = event.dataTransfer?.files
 
-      if (file) {
-        onFile(file)
+      if (files?.length) {
+        onFiles(Array.from(files))
       }
     }
 
@@ -34,7 +34,7 @@ export function useFileDrop(onFile: (file: File) => void) {
       window.removeEventListener('dragleave', handleDragLeave)
       window.removeEventListener('drop', handleDrop)
     }
-  }, [onFile])
+  }, [onFiles])
 
   return dragging
 }

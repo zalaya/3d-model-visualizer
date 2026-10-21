@@ -15,10 +15,11 @@ export type ModelStats = {
   animations: number
   dimensions: Vector3
   height: number
+  animationNames: string[]
 }
 
 export type SceneAnalysis = {
-  stats: Omit<ModelStats, 'animations'>
+  stats: Omit<ModelStats, 'animations' | 'animationNames'>
   materials: Material[]
   scale: number
   offset: Vector3
@@ -30,6 +31,8 @@ export type ViewerSettings = {
   autoRotate: boolean
   info: boolean
 }
+
+export type ViewPreset = 'iso' | 'front' | 'side' | 'top'
 
 export type DockAction = {
   label: string
