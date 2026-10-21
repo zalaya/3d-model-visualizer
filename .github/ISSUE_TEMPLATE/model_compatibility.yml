@@ -1,0 +1,33 @@
+name: Model doesn't load or looks wrong
+description: A .glb / .gltf file fails to open or renders incorrectly
+labels: [model-compatibility]
+body:
+  - type: dropdown
+    id: symptom
+    attributes:
+      label: Symptom
+      options:
+        - Fails to load (error message)
+        - Loads but looks wrong (materials, textures, scale)
+        - Animation doesn't play
+        - Too slow or crashes the tab
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: Error message shown in the app and anything in the console.
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Where does the model come from?
+      description: Exporter and version, or a link to the model.
+      placeholder: Blender 4.2 glTF exporter, Sketchfab, ...
+  - type: textarea
+    id: file
+    attributes:
+      label: Model file
+      description: Attach the file, or a minimal one that reproduces the issue. Only if you are allowed to share it.

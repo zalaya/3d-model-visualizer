@@ -1,4 +1,4 @@
-import { ERROR_DURATION, SUPPORTED_EXTENSIONS } from '../constants'
+import { ERROR_DURATION, SAMPLE_MODEL, SUPPORTED_EXTENSIONS } from '../constants'
 import { isSupportedFile } from '../helpers/is-supported-file'
 import type { ModelFile } from '../types'
 import { type ChangeEvent, type ComponentProps, useCallback, useEffect, useRef, useState } from 'react'
@@ -28,6 +28,21 @@ export function useModelLoader() {
   )
 
   const openPicker = useCallback(() => picker.current?.click(), [])
+
+  const openSample = useCallback(async () => {
+    try {
+      const response = await fetch(`${import.meta.env.BASE_URL}${SAMPLE_MODEL.path}`)
+
+      if (!response.ok) {
+        throw new Error(response.statusText)
+      }
+
+      open(new File([await response.blob()], SAMPLE_MODEL.name))
+    } catch (reason) {
+      console.error(reason)
+      setError(`Couldn't load the sample model`)
+    }
+  }, [open])
 
   useEffect(() => {
     if (!model) {
@@ -62,5 +77,5 @@ export function useModelLoader() {
     }
   }
 
-  return { model, error, open, fail, openPicker, pickerProps }
+  return { model, error, open, fail, openPicker, openSample, pickerProps }
 }

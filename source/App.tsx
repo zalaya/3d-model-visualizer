@@ -6,7 +6,7 @@ import { lazy, Suspense } from 'react'
 const Viewer = lazy(() => import('@/features/viewer').then((module) => ({ default: module.Viewer })))
 
 export default function App() {
-  const { model, error, open, fail, openPicker, pickerProps } = useModelLoader()
+  const { model, error, open, fail, openPicker, openSample, pickerProps } = useModelLoader()
   const dragging = useFileDrop(open)
 
   return (
@@ -16,7 +16,7 @@ export default function App() {
           <Viewer key={model.url} model={model} onBrowse={openPicker} onError={fail} />
         </Suspense>
       ) : (
-        <EmptyState onBrowse={openPicker} />
+        <EmptyState onBrowse={openPicker} onSample={openSample} />
       )}
       <Header fileName={model?.name} />
       {dragging && <DropOverlay />}

@@ -2,6 +2,24 @@
   "name": "3d-model-visualizer",
   "private": true,
   "version": "1.0.0",
+  "description": "Browser-based viewer for .glb and .gltf 3D models. Nothing is uploaded.",
+  "license": "MIT",
+  "author": "zalaya",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zalaya/3d-model-visualizer.git"
+  },
+  "homepage": "https://zalaya.github.io/3d-model-visualizer/",
+  "bugs": "https://github.com/zalaya/3d-model-visualizer/issues",
+  "keywords": [
+    "three.js",
+    "react-three-fiber",
+    "gltf",
+    "glb",
+    "3d-viewer",
+    "vite",
+    "typescript"
+  ],
   "type": "module",
   "scripts": {
     "development": "vite",
@@ -9,7 +27,8 @@
     "production": "vite preview",
     "typecheck": "tsc",
     "lint": "eslint .",
-    "format": "eslint . --fix"
+    "format": "eslint . --fix",
+    "check": "bun run typecheck && bun run lint"
   },
   "dependencies": {
     "@fontsource-variable/geist": "^5.3.0",
