@@ -1,9 +1,10 @@
-import { SUPPORTED_EXTENSIONS } from '../constants'
+import { SAMPLE_MODELS, SUPPORTED_EXTENSIONS } from '../constants'
+import type { SampleModel } from '../types'
 import { Box, Sparkles } from 'lucide-react'
 
 type EmptyStateProps = {
   onBrowse: () => void
-  onSample: () => void
+  onSample: (sample: SampleModel) => void
 }
 
 export function EmptyState({ onBrowse, onSample }: EmptyStateProps) {
@@ -45,14 +46,24 @@ export function EmptyState({ onBrowse, onSample }: EmptyStateProps) {
           </div>
         </button>
 
-        <button
-          type='button'
-          onClick={onSample}
-          className='flex cursor-pointer items-center gap-2 rounded-full px-3 py-1.5 text-sm text-neutral-500 transition-colors outline-none hover:text-white focus-visible:ring-2 focus-visible:ring-sky-400/60'
-        >
-          <Sparkles className='size-4' strokeWidth={1.75} />
-          No model at hand? Try a sample
-        </button>
+        <div className='flex flex-col items-center gap-3'>
+          <p className='flex items-center gap-2 text-sm text-neutral-500'>
+            <Sparkles className='size-4' strokeWidth={1.75} />
+            No model at hand? Try a sample
+          </p>
+          <div className='flex flex-wrap justify-center gap-2'>
+            {SAMPLE_MODELS.map((sample) => (
+              <button
+                key={sample.id}
+                type='button'
+                onClick={() => onSample(sample)}
+                className='cursor-pointer rounded-full border border-white/10 bg-white/[0.03] px-3.5 py-1.5 text-sm text-neutral-300 transition-colors outline-none hover:border-white/25 hover:bg-white/[0.08] hover:text-white focus-visible:ring-2 focus-visible:ring-sky-400/60'
+              >
+                {sample.label}
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
 
       <p className='absolute bottom-6 text-xs text-neutral-600'>Files never leave your browser.</p>

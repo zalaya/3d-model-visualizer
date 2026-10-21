@@ -1,6 +1,6 @@
-import { ERROR_DURATION, SAMPLE_MODEL, SUPPORTED_EXTENSIONS } from '../constants'
+import { ERROR_DURATION, SUPPORTED_EXTENSIONS } from '../constants'
 import { isSupportedFile } from '../helpers/is-supported-file'
-import type { ModelFile } from '../types'
+import type { ModelFile, SampleModel } from '../types'
 import { type ChangeEvent, type ComponentProps, useCallback, useEffect, useRef, useState } from 'react'
 
 export function useModelLoader() {
@@ -29,15 +29,15 @@ export function useModelLoader() {
 
   const openPicker = useCallback(() => picker.current?.click(), [])
 
-  const openSample = useCallback(async () => {
+  const openSample = useCallback(async ({ id }: SampleModel) => {
     try {
-      const response = await fetch(`${import.meta.env.BASE_URL}${SAMPLE_MODEL.path}`)
+      const response = await fetch(`${import.meta.env.BASE_URL}samples/${id}.glb`)
 
       if (!response.ok) {
         throw new Error(response.statusText)
       }
 
-      open(new File([await response.blob()], SAMPLE_MODEL.name))
+      open(new File([await response.blob()], `${id}.glb`))
     } catch (reason) {
       console.error(reason)
       setError(`Couldn't load the sample model`)
