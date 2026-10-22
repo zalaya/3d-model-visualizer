@@ -1,5 +1,5 @@
 {
-  "name": "3d-model-visualizer",
+  "name": "moder-viewer",
   "private": true,
   "version": "1.0.0",
   "description": "Browser-based viewer for .glb and .gltf 3D models. Nothing is uploaded.",
@@ -7,10 +7,10 @@
   "author": "zalaya",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zalaya/3d-model-visualizer.git"
+    "url": "git+https://github.com/zalaya/moder-viewer.git"
   },
-  "homepage": "https://zalaya.github.io/3d-model-visualizer/",
-  "bugs": "https://github.com/zalaya/3d-model-visualizer/issues",
+  "homepage": "https://zalaya.github.io/moder-viewer/",
+  "bugs": "https://github.com/zalaya/moder-viewer/issues",
   "keywords": [
     "three.js",
     "react-three-fiber",
@@ -24,11 +24,11 @@
   "scripts": {
     "development": "vite",
     "build": "tsc && vite build",
-    "production": "vite preview",
+    "preview": "vite preview",
+    "lint": "biome check .",
+    "format": "biome format --write .",
     "typecheck": "tsc",
-    "lint": "eslint .",
-    "format": "eslint . --fix",
-    "check": "bun run typecheck && bun run lint"
+    "check": "bun run lint && bun run typecheck && bun run build"
   },
   "dependencies": {
     "@animate-ui/react": "^2.0.0",
@@ -42,15 +42,13 @@
     "three": "^0.186.1"
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.6.2",
     "@tailwindcss/vite": "^4.3.3",
     "@types/node": "^26.6.5",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@types/three": "^0.186.0",
-    "@typescript-eslint/parser": "^8.72.0",
     "@vitejs/plugin-react": "^6.1.2",
-    "eslint": "^10.13.0",
-    "eslint-plugin-simple-import-sort": "^14.0.0",
     "tailwindcss": "^4.3.3",
     "typescript": "^6",
     "vite": "^8.3.4"

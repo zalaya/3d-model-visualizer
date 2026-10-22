@@ -8,7 +8,7 @@
 
 ## Checklist
 
-- [ ] `bun run typecheck`, `bun run lint` and `bun run build` pass
+- [ ] `bun run check` passes
 - [ ] Tried it in the browser with at least one real model
 - [ ] README or documentation updated if behaviour changed
 

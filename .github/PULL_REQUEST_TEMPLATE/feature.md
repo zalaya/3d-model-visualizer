@@ -14,5 +14,5 @@
 
 - [ ] Lives in its own file or feature folder instead of growing an existing one
 - [ ] Keyboard accessible and works with the dock shortcuts
-- [ ] `bun run typecheck`, `bun run lint` and `bun run build` pass
+- [ ] `bun run check` passes
 - [ ] README updated

@@ -7,7 +7,7 @@ updates:
       interval: weekly
     groups:
       three:
-        patterns: ['three', '@types/three', '@react-three/*']
+        patterns: ["three", "@types/three", "@react-three/*"]
       tooling:
         dependency-type: development
     open-pull-requests-limit: 5

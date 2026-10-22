@@ -14,4 +14,4 @@
 
 - [ ] No user-visible behaviour change
 - [ ] Feature boundaries respected (features only expose their `index.ts`)
-- [ ] `bun run typecheck`, `bun run lint` and `bun run build` pass
+- [ ] `bun run check` passes

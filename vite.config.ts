@@ -6,5 +6,5 @@ export default defineConfig({
   base: './',
   plugins: [react(), tailwindcss()],
   resolve: { tsconfigPaths: true },
-  build: { chunkSizeWarningLimit: 1400 }
+  build: { chunkSizeWarningLimit: 1400 },
 })

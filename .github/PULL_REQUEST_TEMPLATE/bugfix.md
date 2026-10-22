@@ -17,4 +17,4 @@
 ## Checklist
 
 - [ ] Reproduced before, fixed after
-- [ ] `bun run typecheck`, `bun run lint` and `bun run build` pass
+- [ ] `bun run check` passes
